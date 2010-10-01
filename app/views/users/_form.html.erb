@@ -1,0 +1,47 @@
+ <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table>
+	<tr>
+		<td><%= form.label :name, "Name" %></td>
+		<td>:</td>
+		<td><%= form.text_field :name %></td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td><%= form.label :email, "Email" %></td>
+		<td>:</td>
+		<td><%= form.text_field :email %></td>
+		
+	</tr>
+	<% if form.object.new_record?  %>
+		<tr>
+			<td><%= form.label :password %></td>
+			<td>:</td>
+			<td><%= form.password_field :password %></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><%= form.label :password_confirmation, "Confirm Password" %></td>
+			<td>:</td>
+			<td><%= form.password_field :password_confirmation %></td>
+			<td></td>
+		</tr>
+	<% end %>
+	<tr>
+		<td><%= form.label :company, "Company" %></td>
+		<td>:</td>
+		<td><%= form.text_field :company %></td>
+		
+	</tr>
+</table>

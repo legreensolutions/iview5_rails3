@@ -1,0 +1,12 @@
+<table>
+<% form_tag 'send_mail' do %>
+<% for user in @users %>
+	<tr>
+	<td><%= user.sbb_id%></td>
+	<td><%= check_box_tag "user_ids[]",user.id %></td>
+	</tr>
+<% end%>
+<tr><td><%= submit_tag "Send",:name=>'send',:onclick=>'return validate_email_message(frm_message)'%></td></tr>
+<% end %>
+</table>
+

@@ -1,0 +1,49 @@
+<%= javascript_include_tag :defaults%>
+<h1><%=  "Log in" %></h1>
+<table>
+
+<% form_remote_for @user_session,:url_for=>{:contoller=>'user_sessions',:action=>'login'} do |f| %>
+<p class="error_msg"><%= f.error_messages %></p>
+	<tr>
+		<td><%= f.label :email %></td>
+		<td>:</td>
+		<td><%= f.text_field :email %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :password %></td>
+		<td>:</td>
+		<td><%= f.password_field :password %></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+
+		<%= f.submit "Log in" %></td>
+		<td><%= link_to 'Forgot Password?',:controller=>'password_resets',:action=>'new'%></td>
+	</tr>
+<% end %>
+</table>
+
+
+<h1><%=  "Log in" %></h1>
+<table>
+<% form_for @user_session do |f| %>
+<p class="error_msg"><%= f.error_messages %></p>
+	<tr>
+		<td><%= f.label :email %></td>
+		<td>:</td>
+		<td><%= f.text_field :email %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :password %></td>
+		<td>:</td>
+		<td><%= f.password_field :password %></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+		<%= button_to 'Login',:controller=>'user_sessions',:action=>"login" %>
+		<%=# f.submit "Log in" %></td>
+		<td><%= link_to 'Forgot Password?',:controller=>'password_resets',:action=>'new'%></td>
+	</tr>
+<% end %>
+</table>
+

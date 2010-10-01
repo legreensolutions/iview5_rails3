@@ -1,0 +1,25 @@
+<div style="border:3px solid #ECF1EF;width:655px">
+Name:<%= current_user.name %> <br />
+Email: <%= current_user.email %><br />
+Company : <%= current_user.company %><br />
+ID:<%= current_user.clientInternalID %><br />
+Field1:<%= current_user.ClientLogoImageName%><br />
+Field2:<%= current_user.perfStartScript%><br />
+Field3:<%= current_user.availabiltyStartScript%><br />
+Field4:<%= current_user.faultStartScript%><br />
+Field5:<%= current_user.capacityStartScript%><br />
+Field6<%= current_user.configStartScript%><br />
+</div>
+
+<div style="width:100%">
+<div class="perlscript_answer"><%= @result %></div>
+<div style="float:left">&nbsp;&nbsp;</div>
+<div class="perlscript_answer"><%= current_user.email %></div>
+<div style="float:left">&nbsp;&nbsp;</div>
+<div class="perlscript_answer"><%= current_user.company %></div>
+<div style="float:left">&nbsp;&nbsp;</div>
+<div class="perlscript_answer"><%= current_user.company %></div>
+<div style="float:left">&nbsp;&nbsp;</div>
+<div class="perlscript_answer"><%= current_user.company %></div>
+</div>
+

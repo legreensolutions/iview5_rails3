@@ -1,0 +1,18 @@
+<%= jqgrid_stylesheets %>
+<%= jqgrid_javascripts %> 
+<h1 align="center"><%= 'User List'%></h1>
+
+<%= jqgrid("Football Players", "players", "/users",
+	[
+		{ :field => "id", :label => "ID", :width => 30, :resizable => true},
+		{ :field => "name", :label => "Name",:width=>300 },
+		{ :field => "email", :label => "Email",:width=>300 }
+	
+	],
+	{:width=> 100000}
+
+
+
+) %>
+
+

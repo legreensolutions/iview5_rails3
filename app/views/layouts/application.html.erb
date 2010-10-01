@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<title>Northstar Group Holdings Ltd</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="author" content="" />
+<meta http-equiv="content-type" content="" />
+
+<%= stylesheet_link_tag 'style' %>
+<%= javascript_include_tag :defaults %>
+
+<link rel="shortcut icon" href="http://YOURDOMAIN.com/favicon.ico">
+<style type="text/css">
+      div.tooltip{
+        padding: 5px;
+        margin: 5px;
+        background-color: #F0F0F0;
+      }
+    </style>
+</head>
+<body>
+
+	<div id="page" align="center">
+		<div id="content" style="width:800px">
+			<div id="logo">
+
+			</div>
+			<div id="topheader">
+				<div align="left" class="bodytext">
+					<br />
+					<strong>Northstar Group Holdings Ltd</strong><br />
+1461 First Avenue, # 360<br />
+New York, NY 10075-2201 USA
+Phone +1 (347) 602 9455<br />
+Fax +1 (347) 438 3214<br />
+info@nsgholdings.com
+
+				</div>
+				<div id="toplinks" class="smallgraytext">
+					
+
+				<% if current_user %>
+					<% if current_user.is_admin %>
+					<%= link_to 'List Users',users_path%>|
+					<% end %>
+					<%= link_to 'Edit Profile',edit_user_path(current_user.id)%>|
+					<%= link_to 'Change Password',:controller=>'password_resets',:action=>'change_password'%>|
+					<%= link_to 'Logout',logout_path%>|
+				<% else %>
+					<%= link_to 'Login',login_path%>|
+					<span class="info"><%= link_to 'Demo Access',new_user_path%>
+					<span class="tooltip">'Demo Access - Register for access to Live Demo Site'
+					</span></span>
+				<% end%>
+					
+			
+				</div>
+			</div>
+			<div id="menu">
+				<div align="right" class="smallwhitetext" style="padding:9px;">
+					<%= link_to 'Home',:controller=>'static_pages',:action=>'home' %>  | <a href="#">About Us</a> | <a href="#">Contact Us</a>
+				</div>
+			</div>
+
+			<div id="contenttext">
+				<div style="padding:10px">
+					<span class="titletext">Welcome to Northstar Group Holdings!</span>
+					</div>
+					<div class="bodytext" style="padding:12px;" align="justify">
+
+
+         <% flash.each do |key,value| %>
+             <div  id="flash" class="flash_<%= key %>" >
+                <div class="message"><%= value %></div>
+                <br><br>
+             </div><!-- end  flash   -->
+         <% end -%>
+
+         <%= yield :layout %>
+
+
+
+
+				</div>
+			</div>
+			<div id="leftpanel">
+				<div align="justify" class="graypanel">
+					<span class="smalltitle">News</span><br /><br />
+					<span class="smallredtext">September 15, 2010</span><br />
+					<span class="bodytext">Just Started layout integration.</span><br />
+					<a href="#" class="smallgraytext">More...</a><br /><br />
+
+				</div>
+			</div>
+			<div id="footer" class="smallgraytext">
+				<%= link_to 'Home',:controller=>'static_pages',:action=>'home' %>| <a href="#">About Us</a>| <a href="#">Contact Us</a>|
+				<% if current_user %>
+					<%= link_to 'Client Home',:controller=>'user_sessions',:action=>'welcome' %>
+				<% end %>
+		
+				| Northstar Group Holdings Ltd.
+				&copy; 2010 | <a href="http://www.winkhosting.com" target="_blank">Hosting Colombia</a>
+			</div>
+		</div>
+	</div>
+
+
+
+</body>
+</html>
+
